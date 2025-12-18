@@ -33,6 +33,25 @@
 python -m path_analyze inspect --csv Path.csv --tz Asia/Shanghai
 ```
 
+## 示例数据（可公开、随机生成）
+
+为了方便他人测试，本仓库提供一个**随机模拟**的轨迹文件（字段与真实导出一致）：
+
+- `sample_data/Path.csv`
+
+也提供生成脚本（可生成任意行数、可复现）：
+
+```bash
+python scripts/generate_sample_path_csv.py --out sample_data/Path.csv --rows 2000 --seed 42
+```
+
+用示例数据跑通：
+
+```bash
+python -m path_analyze inspect --csv sample_data/Path.csv --tz Asia/Shanghai
+python -m path_analyze export-readable --csv sample_data/Path.csv --out readable.csv --tz Asia/Shanghai
+```
+
 ---
 
 ## 1) 导出可读轨迹（`readable.csv`）
@@ -163,6 +182,10 @@ pip install ".[ui]"
 ```bash
 streamlit run streamlit_app.py
 ```
+
+### 示例截图
+
+![示例页面](sample_data/main.png)
 
 界面能力：
 
